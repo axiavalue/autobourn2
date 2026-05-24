@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Iron mark circle -->
+  <circle cx="40" cy="38" r="24" stroke="#1B365D" stroke-width="2.5" fill="none"/>
+  <!-- Arrow pointing upper-right (Mars/Iron symbol) -->
+  <line x1="56.97" y1="21.03" x2="68" y2="10" stroke="#1B365D" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Arrow head -->
+  <polyline points="60,10 68,10 68,18" stroke="#1B365D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Diagonal line inside circle (the band/bar) -->
+  <line x1="16" y1="38" x2="64" y2="38" stroke="#1B365D" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- VOLVO text -->
+  <text x="40" y="72" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#1B365D" text-anchor="middle" letter-spacing="4">VOLVO</text>
+</svg>

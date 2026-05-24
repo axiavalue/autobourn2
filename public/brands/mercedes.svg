@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Outer circle -->
+  <circle cx="40" cy="40" r="37" stroke="#2A2A2A" stroke-width="2.5" fill="none"/>
+  <!-- Inner circle ring -->
+  <circle cx="40" cy="40" r="34" stroke="#2A2A2A" stroke-width="1" fill="none"/>
+  <!-- Three-pointed star as a solid shape -->
+  <path d="
+    M40 7
+    L42.5 34.5
+    L66.98 56
+    L40.5 43.5
+    L39.5 43.5
+    L13.02 56
+    L37.5 34.5
+    Z
+  " fill="#2A2A2A"/>
+</svg>

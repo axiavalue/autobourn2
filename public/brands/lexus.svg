@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Outer oval -->
+  <ellipse cx="40" cy="40" rx="36" ry="28" stroke="#2A2A2A" stroke-width="2" fill="none"/>
+  <!-- Stylized L - the Lexus L is an elegant swooping L shape -->
+  <path d="
+    M32 16
+    C32 16 30 24 30 32
+    C30 40 32 48 38 52
+    C42 55 48 56 56 56
+    L58 54
+    C50 54 44 53 40 50
+    C36 47 34 42 34 36
+    C34 30 34 24 35 18
+    Z
+  " fill="#2A2A2A"/>
+</svg>
