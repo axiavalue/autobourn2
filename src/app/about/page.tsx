@@ -30,88 +30,33 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero + Founder */}
       <section style={{ padding: 'clamp(3rem, 8vw, 6rem) 0', background: '#FFFFFF' }}>
         <div className="container">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-            style={{ maxWidth: '700px' }}>
-            <p className="text-overline" style={{ marginBottom: '0.75rem' }}>About Auto Bourn</p>
-            <h1 style={{ fontFamily: 'var(--font-primary)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, color: '#2A2A2A', letterSpacing: '-0.04em', lineHeight: 1.05, marginBottom: '1.5rem' }}>
-              Redefining<br />Pre-Owned <span style={{ color: '#E10613' }}>Luxury</span>
-            </h1>
-            <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)', lineHeight: 1.8, color: '#4A4A4A' }}>
-              Auto Bourn was founded with a singular vision — to transform the pre-owned luxury car experience in India. 
-              We believe every premium vehicle deserves to be presented, sold, and owned with the same reverence as when it first left the showroom.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Founder's Note */}
-      <section className="section" style={{ background: '#FFFFFF', borderTop: '1px solid #F5F5F5' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'clamp(2rem, 6vw, 4rem)', alignItems: 'center' }}>
-            {/* Founder Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: -40 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.8 }}
-            >
-              <div style={{ 
-                position: 'relative', 
-                width: '100%', 
-                aspectRatio: '4/5', 
-                borderRadius: '24px', 
-                overflow: 'hidden', 
-                boxShadow: '0 20px 40px rgba(0,0,0,0.06)',
-                border: '1px solid #ECECEC'
-              }}>
-                <Image
-                  src="/AutoBourn-Founder.png"
-                  alt="Mr. S. Prasanna - Founder of Auto Bourn"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(2rem, 6vw, 4rem)', alignItems: 'center' }}>
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.08)', border: '1px solid #ECECEC' }}>
+                <Image src="/AutoBourn-Founder.png" alt="Mr. S. Prasanna - Founder of Auto Bourn" fill priority style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
             </motion.div>
-
-            {/* Founder Note Text */}
-            <motion.div 
-              initial={{ opacity: 0, x: 40 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.8 }}
-            >
-              <p className="text-overline" style={{ marginBottom: '0.75rem' }}>Founder&apos;s Note</p>
-              <h2 style={{ fontFamily: 'var(--font-primary)', fontSize: 'clamp(2rem, 4vw, 2.75rem)', fontWeight: 700, color: '#2A2A2A', marginBottom: '1.5rem', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-                Driven by Passion,<br />Built on <span style={{ color: '#E10613' }}>Trust</span>
-              </h2>
-              <div style={{ fontSize: '1rem', lineHeight: 1.8, color: '#4A4A4A', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <p>
-                  Welcome to Auto Bourn. Our journey began with a simple but profound observation: the pre-owned luxury car market in India lacked the transparency, precision, and customer-first care that a discerning client deserves. 
-                </p>
-                <p>
-                  At Auto Bourn, we do not just trade premium vehicles; we curate automotive masterpieces. Every car that enters our collection is selected with meticulous attention to detail and undergoes a strict 200+ point quality inspection and certification. We believe that buying a pre-owned car should feel just as prestigious, clean, and exciting as driving a brand-new one out of the showroom.
-                </p>
-                <p>
-                  Thank you for choosing Auto Bourn to be a part of your luxury driving journey. We look forward to offering you the finest experience, built on transparency and absolute commitment.
-                </p>
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <p className="text-overline" style={{ marginBottom: '0.75rem' }}>About Auto Bourn</p>
+              <h1 style={{ fontFamily: 'var(--font-primary)', fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', fontWeight: 800, color: '#2A2A2A', letterSpacing: '-0.04em', lineHeight: 1.05, marginBottom: '1.25rem' }}>Redefining<br />Pre-Owned <span style={{ color: '#E10613' }}>Luxury</span></h1>
+              <p className="text-overline" style={{ marginBottom: '0.5rem', marginTop: '1.5rem' }}>Founder&apos;s Note</p>
+              <h2 style={{ fontFamily: 'var(--font-primary)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, color: '#2A2A2A', marginBottom: '1.25rem', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Driven by Passion, Built on <span style={{ color: '#E10613' }}>Trust</span></h2>
+              <div style={{ fontSize: '0.9375rem', lineHeight: 1.8, color: '#4A4A4A', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <p>Auto Bourn was founded with a singular vision — to transform the pre-owned luxury car experience in India. We believe every premium vehicle deserves to be presented, sold, and owned with the same reverence as when it first left the showroom.</p>
+                <p>Every car that enters our collection is selected with meticulous attention to detail and undergoes a strict 200+ point quality inspection and certification.</p>
+                <p>Thank you for choosing Auto Bourn to be a part of your luxury driving journey. We look forward to offering you the finest experience, built on transparency and absolute commitment.</p>
               </div>
-              <div style={{ marginTop: '2.5rem', borderTop: '1px solid #F0F0F0', paddingTop: '1.5rem' }}>
-                <p style={{ fontFamily: 'var(--font-primary)', fontSize: '1.25rem', fontWeight: 700, color: '#2A2A2A', marginBottom: '0.25rem' }}>
-                  Mr. S. Prasanna
-                </p>
-                <p style={{ fontSize: '0.8125rem', color: '#E10613', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  Founder & Managing Director, Auto Bourn
-                </p>
+              <div style={{ marginTop: '2rem', borderTop: '1px solid #F0F0F0', paddingTop: '1.25rem' }}>
+                <p style={{ fontFamily: 'var(--font-primary)', fontSize: '1.125rem', fontWeight: 700, color: '#2A2A2A', marginBottom: '0.25rem' }}>Mr. S. Prasanna</p>
+                <p style={{ fontSize: '0.8125rem', color: '#E10613', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Founder & Managing Director, Auto Bourn</p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* Stats */}
       <section className="section" style={{ background: '#F5F5F5' }}>
         <div className="container">
