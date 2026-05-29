@@ -90,11 +90,16 @@ export default function Footer() {
               Every vehicle curated, certified, and presented with museum-quality precision.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem' }}>
-              {['Instagram', 'YouTube', 'LinkedIn', 'WhatsApp'].map((social) => (
+              {[
+                { label: 'Instagram', href: 'https://www.instagram.com/autobourn/' },
+                { label: 'YouTube',   href: 'https://www.youtube.com/@autobourn' },
+                { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/autobourn' },
+                { label: 'WhatsApp',  href: 'https://wa.me/917677772222' },
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
-                  aria-label={social}
+                  key={social.label}
+                  href={social.href} target="_blank" rel="noopener noreferrer"
+                  aria-label={social.label}
                   style={{
                     width: '40px',
                     height: '40px',
@@ -113,7 +118,7 @@ export default function Footer() {
                   }}
                   className="social-icon"
                 >
-                  {social[0]}
+                  {social.label[0]}
                 </a>
               ))}
             </div>
