@@ -47,14 +47,17 @@ export interface Testimonial {
 }
 
 export const brands: Brand[] = [
-  { name: 'Mercedes-Benz', logo: '/brands/mercedes.svg', count: 24, slug: 'mercedes-benz' },
-  { name: 'BMW', logo: '/brands/bmw.svg', count: 18, slug: 'bmw' },
-  { name: 'Audi', logo: '/brands/audi.svg', count: 15, slug: 'audi' },
-  { name: 'Jaguar', logo: '/brands/jaguar.svg', count: 8, slug: 'jaguar' },
-  { name: 'Land Rover', logo: '/brands/landrover.svg', count: 12, slug: 'land-rover' },
-  { name: 'Volvo', logo: '/brands/volvo.svg', count: 10, slug: 'volvo' },
-  { name: 'Lexus', logo: '/brands/lexus.svg', count: 6, slug: 'lexus' },
-  { name: 'Porsche', logo: '/brands/porsche.svg', count: 5, slug: 'porsche' },
+  { name: 'Mercedes-Benz', logo: '/brands/mercedes-benz.png', count: 24, slug: 'mercedes-benz' },
+  { name: 'BMW', logo: '/brands/bmw.png', count: 18, slug: 'bmw' },
+  { name: 'Audi', logo: '/brands/audi.png', count: 15, slug: 'audi' },
+  { name: 'Jaguar', logo: '/brands/jaguar.png', count: 8, slug: 'jaguar' },
+  { name: 'Land Rover', logo: '/brands/land-rover.png', count: 12, slug: 'land-rover' },
+  { name: 'Volvo', logo: '/brands/volvo.png', count: 10, slug: 'volvo' },
+  { name: 'Porsche', logo: '/brands/porsche.png', count: 5, slug: 'porsche' },
+  { name: 'Lamborghini', logo: '/brands/lamborghini.png', count: 3, slug: 'lamborghini' },
+  { name: 'Cadillac', logo: '/brands/cadillac.png', count: 2, slug: 'cadillac' },
+  { name: 'MINI', logo: '/brands/mini.png', count: 4, slug: 'mini' },
+  { name: 'Jeep', logo: '/brands/jeep.png', count: 6, slug: 'jeep' },
 ];
 
 export const vehicles: Vehicle[] = [
