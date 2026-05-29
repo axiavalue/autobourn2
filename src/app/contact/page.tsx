@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 
 /* ── SVG Contact Icons ── */
@@ -33,6 +34,15 @@ function ContactIcon({ type }: { type: string }) {
 }
 
 export default function ContactPage() {
+  const [form, setForm] = React.useState({ name: '', phone: '', email: '', interest: 'Select', message: '' });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = encodeURIComponent('Hi Auto Bourn!\n\nName: ' + form.name + '\nPhone: ' + form.phone + '\nInterest: ' + form.interest + '\nMessage: ' + form.message);
+    window.open('https://wa.me/917677772222?text=' + text, '_blank', 'noopener,noreferrer');
+  };
   const inputStyle: React.CSSProperties = {
     width: '100%', padding: '0.875rem 1rem', border: '1px solid #ECECEC', borderRadius: '10px',
     background: '#FAFAFA', fontSize: '0.9375rem', color: '#2A2A2A', fontFamily: 'var(--font-secondary)',
@@ -64,30 +74,30 @@ export default function ContactPage() {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div style={{ background: '#FAFAFA', borderRadius: '20px', padding: 'clamp(2rem, 3vw, 2.5rem)', border: '1px solid #ECECEC' }}>
                 <h2 style={{ fontFamily: 'var(--font-primary)', fontSize: '1.25rem', fontWeight: 700, color: '#2A2A2A', marginBottom: '1.5rem' }}>Send a Message</h2>
-                <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div>
                       <label style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8A8A8A', display: 'block', marginBottom: '0.5rem' }}>Name *</label>
-                      <input type="text" placeholder="Your name" style={inputStyle} />
+                      <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="Your name" style={inputStyle} />
                     </div>
                     <div>
                       <label style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8A8A8A', display: 'block', marginBottom: '0.5rem' }}>Phone *</label>
-                      <input type="tel" placeholder="+91" style={inputStyle} />
+                      <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91" style={inputStyle} />
                     </div>
                   </div>
                   <div>
                     <label style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8A8A8A', display: 'block', marginBottom: '0.5rem' }}>Email</label>
-                    <input type="email" placeholder="your@email.com" style={inputStyle} />
+                    <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" style={inputStyle} />
                   </div>
                   <div>
                     <label style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8A8A8A', display: 'block', marginBottom: '0.5rem' }}>Interest</label>
-                    <select style={inputStyle}><option>Select</option><option>Buy a Vehicle</option><option>Sell a Vehicle</option><option>Finance</option><option>Insurance</option><option>Test Drive</option><option>General Inquiry</option></select>
+                    <select name="interest" value={form.interest} onChange={handleChange} style={inputStyle}><option>Select</option><option>Buy a Vehicle</option><option>Sell a Vehicle</option><option>Finance</option><option>Insurance</option><option>Test Drive</option><option>General Inquiry</option></select>
                   </div>
                   <div>
                     <label style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8A8A8A', display: 'block', marginBottom: '0.5rem' }}>Message</label>
-                    <textarea rows={4} placeholder="How can we help?" style={{ ...inputStyle, resize: 'vertical' }} />
+                    <textarea rows={4} name="message" value={form.message} onChange={handleChange} placeholder="How can we help?" style={{ ...inputStyle, resize: 'vertical' }} />
                   </div>
-                  <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>Send Message</button>
+                  <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>Send via WhatsApp</button>
                 </form>
               </div>
             </motion.div>
@@ -108,12 +118,13 @@ export default function ContactPage() {
               ))}
 
               {/* Map placeholder */}
-              <div style={{
-                borderRadius: '16px', overflow: 'hidden', aspectRatio: '16/9',
-                background: 'linear-gradient(135deg, #F0F0F0, #E8E8E8)', border: '1px solid #ECECEC',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, minHeight: '200px',
-              }}>
-                <p style={{ color: '#B0B0B0', fontFamily: 'var(--font-primary)', fontSize: '1rem' }}>Interactive Map</p>
+              <div style={{ borderRadius: '16px', overflow: 'hidden', flex: 1, minHeight: '220px', border: '1px solid #ECECEC' }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985!2d77.63768!3d12.97194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae168c9b851b25%3A0xe7a0f3ac4d05f0c0!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka%20560038!5e0!3m2!1sen!2sin!4v1716000000000"
+                  width="100%" height="220" style={{ border: 0, display: 'block' }}
+                  allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+                  title="Auto Bourn Showroom"
+                />
               </div>
             </motion.div>
           </div>
