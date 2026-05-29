@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { vehicles, brands, testimonials, statistics, whyAutoBourn, formatPrice } from '@/data/vehicles';
 import VehicleCard from '@/components/VehicleCard';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 import { useScrollReveal, useCountUp, useMouseTilt } from '@/hooks/useAnimations';
 
 /* ── SVG Feature Icons ── */
@@ -165,22 +166,35 @@ export default function HomePage() {
 
         <div className="container-wide" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 6vw, 6rem)', alignItems: 'center', width: '100%', padding: 'clamp(2rem, 4vw, 4rem) clamp(1.5rem, 4vw, 3rem)' }}>
           {/* Left */}
-          <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
-            <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.2em', color: '#E10613', marginBottom: '1.5rem' }}>
-              Premium Pre-Owned Collection
-            </p>
-            <h1 style={{ fontFamily: 'var(--font-primary)', fontSize: 'clamp(3rem, 7vw, 6.5rem)', fontWeight: 800, lineHeight: 0.95, letterSpacing: '-0.04em', color: '#2A2A2A', marginBottom: '1.5rem' }}>
-              DRIVE<br />BEYOND<br /><span style={{ color: '#E10613' }}>LUXURY</span>
-            </h1>
-            <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)', lineHeight: 1.7, color: '#4A4A4A', maxWidth: '480px', marginBottom: '2.5rem' }}>
-              Curated collection of certified premium pre-owned vehicles. 
-              Every car inspected, every detail perfected, every drive exceptional.
-            </p>
+          <div>
+            <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+              <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.2em', color: '#E10613', marginBottom: '1.5rem' }}>
+                Premium Pre-Owned Collection
+              </p>
+              <h1 style={{ fontFamily: 'var(--font-primary)', fontSize: 'clamp(3rem, 7vw, 6.5rem)', fontWeight: 800, lineHeight: 0.95, letterSpacing: '-0.04em', color: '#2A2A2A', marginBottom: '1.5rem' }}>
+                DRIVE<br />BEYOND<br /><span style={{ color: '#E10613' }}>LUXURY</span>
+              </h1>
+              <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)', lineHeight: 1.7, color: '#4A4A4A', maxWidth: '480px', marginBottom: '2.5rem' }}>
+                Curated collection of certified premium pre-owned vehicles. 
+                Every car inspected, every detail perfected, every drive exceptional.
+              </p>
+            </motion.div>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link href="/inventory" className="btn btn-primary btn-lg" style={{ textDecoration: 'none' }}>Explore Collection</Link>
-              <Link href="/contact" className="btn btn-secondary btn-lg" style={{ textDecoration: 'none' }}>Book Test Drive</Link>
+              <Link 
+                href="/inventory" 
+                className="btn btn-primary btn-lg" 
+                style={{ 
+                  textDecoration: 'none', 
+                  transition: 'transform var(--duration-normal) var(--ease-luxury), box-shadow var(--duration-normal) var(--ease-luxury)' 
+                }}
+              >
+                Explore Collection
+              </Link>
+              <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} style={{ display: 'inline-flex' }}>
+                <Link href="/contact" className="btn btn-secondary btn-lg" style={{ textDecoration: 'none' }}>Book Test Drive</Link>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right — Vehicle Display with REAL IMAGE */}
           <motion.div
@@ -228,41 +242,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ SEARCH MODULE ═══ */}
-      <section style={{ padding: '0 0 clamp(3rem, 6vw, 5rem)', marginTop: '-2rem', position: 'relative', zIndex: 10 }}>
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{
-              background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(25px)',
-              border: '1px solid rgba(225,225,225,0.5)', borderRadius: '20px',
-              padding: 'clamp(1.5rem, 3vw, 2.5rem)', boxShadow: '0 8px 40px rgba(0,0,0,0.06)',
-            }}
-          >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', alignItems: 'end' }}>
-              {['Brand', 'Body Type', 'Budget', 'Fuel Type'].map((label) => (
-                <div key={label}>
-                  <label style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#8A8A8A', display: 'block', marginBottom: '0.5rem' }}>{label}</label>
-                  <select style={{
-                    width: '100%', padding: '0.75rem 1rem', border: '1px solid #ECECEC', borderRadius: '10px',
-                    background: '#FAFAFA', fontSize: '0.875rem', color: '#2A2A2A',
-                    fontFamily: 'var(--font-secondary)', outline: 'none', cursor: 'pointer',
-                    transition: 'border-color 0.3s', appearance: 'none',
-                  }}>
-                    <option>All {label}s</option>
-                  </select>
-                </div>
-              ))}
-              <Link href="/inventory" className="btn btn-primary" style={{ textDecoration: 'none', height: 'fit-content' }}>
-                Search
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* ═══ FEATURED INVENTORY ═══ */}
       <section ref={section2.ref} className="section" style={{ background: '#FFFFFF' }}>
@@ -298,8 +278,15 @@ export default function HomePage() {
                     textAlign: 'center', border: '1px solid #ECECEC',
                     transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)', cursor: 'pointer',
                   }}>
-                    <div style={{ width: '48px', height: '48px', margin: '0 auto 1rem', background: '#F5F5F5', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: '#8A8A8A', fontWeight: 700 }}>
-                      {brand.name.slice(0, 2).toUpperCase()}
+                    <div style={{ width: '48px', height: '48px', margin: '0 auto 1rem', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Image
+                        src={brand.logo}
+                        alt={`${brand.name} logo`}
+                        width={48}
+                        height={48}
+                        style={{ objectFit: 'contain' }}
+                        className="brand-logo-img"
+                      />
                     </div>
                     <p style={{ fontFamily: 'var(--font-primary)', fontSize: '0.875rem', fontWeight: 600, color: '#2A2A2A', marginBottom: '0.25rem' }}>{brand.name}</p>
                     <p style={{ fontSize: '0.75rem', color: '#B0B0B0' }}>{brand.count} Vehicles</p>
@@ -365,34 +352,11 @@ export default function HomePage() {
       <section className="section" style={{ background: '#F5F5F5' }}>
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-            style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 5vw, 4rem)' }}>
+            style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
             <p className="text-overline" style={{ marginBottom: '0.75rem' }}>Testimonials</p>
             <h2 className="headline-section">What Our Clients Say</h2>
           </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            {testimonials.map((t, i) => (
-              <motion.div key={t.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}>
-                <div style={{
-                  background: '#FFFFFF', borderRadius: '16px', padding: '2rem', border: '1px solid #ECECEC',
-                  transition: 'all 0.4s ease', height: '100%', display: 'flex', flexDirection: 'column',
-                }}>
-                  <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '1rem' }}>
-                    {Array.from({ length: t.rating }).map((_, j) => <span key={j} style={{ color: '#E10613', fontSize: '0.875rem' }}>★</span>)}
-                  </div>
-                  <p style={{ fontSize: '0.9375rem', lineHeight: 1.7, color: '#4A4A4A', marginBottom: '1.5rem', flex: 1 }}>&ldquo;{t.content}&rdquo;</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderTop: '1px solid #F0F0F0', paddingTop: '1rem' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#F5F5F5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.875rem', fontWeight: 700, color: '#8A8A8A' }}>
-                      {t.name[0]}
-                    </div>
-                    <div>
-                      <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#2A2A2A' }}>{t.name}</p>
-                      <p style={{ fontSize: '0.75rem', color: '#B0B0B0' }}>{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
 
@@ -431,6 +395,8 @@ export default function HomePage() {
       {/* ── Global page styles ── */}
       <style jsx global>{`
         .brand-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.06); border-color: #E10613 !important; }
+        .brand-logo-img { filter: grayscale(100%) brightness(0.4); opacity: 0.6; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .brand-card:hover .brand-logo-img { filter: grayscale(0%) brightness(1); opacity: 1; }
         .floating-icon:hover { transform: translateY(-4px) scale(1.05); }
         @media (max-width: 768px) {
           .hero-vehicle-container { display: none; }
